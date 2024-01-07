@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zorro Weather</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+  </head>
+  <body
+    style="
+      background-image: url('/images/<%= path %>.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    "
+  >
+    <h1 class="text-center my-5">Zorro Weather</h1>
+
+    <div class="container">
+      <div class="form">
+        <form action="/" method="post">
+          <input
+            type="text"
+            name="city"
+            placeholder="Search City"
+            class="kota my-0"
+          /><span></span>
+          <button type="submit" class="btn btn-secondary my-0 mx-0">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+              ></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <div class="section mt-3">
+        <div class="weather-container">
+          <h2>Current weather in <%= city %>, <span><%= flag %></span></h2>
+          <h1>
+            <img
+              src="/images/<%= icon %>.png"
+              width="70px"
+              height="70px"
+              alt=""
+            />
+            <%= weather %>
+            <span style="font-size: 1.5rem; color: rgb(192, 192, 192)"
+              ><%= desc %></span
+            >
+          </h1>
+        </div>
+        
+        <div class="row my-5">
+          <div class="col-md-6">
+              <h4><i class="bi bi-calendar3"></i> <%= time %></h4>
+              <h4><i class="bi bi-thermometer-high"></i> <%= temp %>°C</h4>
+              <h4><i class="bi bi-water"></i> <%= pressure %> hPa</h4>
+          </div>
+          <div class="col-md-6">
+              <h4><i class="bi bi-wind"></i> <%= wind %> m/s</h4>
+              <h4><i class="bi bi-droplet-half"></i> <%= humid %>%</h4>
+              <h4><i class="bi bi-pin-map"></i> <%= lat %>, <%= lon  %></h4>
+          </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
